@@ -6,6 +6,7 @@ import { useEditor, EditorContent, BubbleMenu, FloatingMenu } from "@tiptap/reac
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { BubbleButton } from "./BubbleButton";
 import { RxFontBold, RxFontItalic, RxStrikethrough, RxCode, RxChevronDown, RxChatBubble } from 'react-icons/rx';
+import { InitialContent } from "./InitialContent";
 
 lowlight.registerLanguage("js", js);
 
@@ -13,7 +14,8 @@ export function Editor() {
 
   const editor = useEditor({
     extensions: [StarterKit, CodeBlockLowlight.configure({ lowlight })],
-    content: "<p>Hello World!</p>",
+    content: InitialContent,
+    editorProps: { attributes: { class: 'outline-none' } }
   });
 
   return (
